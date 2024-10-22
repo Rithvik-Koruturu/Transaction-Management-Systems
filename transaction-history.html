@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - Transaction Management System</title>
+    <link rel="stylesheet" href="styles_hist.css">
+</head>
+<body>
+    <!-- Transaction History Container -->
+    <div class="history-container">
+        <!-- Page Title -->
+        <h2>Transaction History</h2>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-button">Filter by Date</button>
+            <button class="action-button">Filter by Status</button>
+            <button class="action-button">Export to CSV</button>
+        </div>
+
+        <!-- Transaction Table -->
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-09-12</td>
+                    <td>Payment to Vendor</td>
+                    <td>$150.00</td>
+                    <td class="status-completed">Completed</td>
+                </tr>
+                <tr>
+                    <td>2024-09-10</td>
+                    <td>Subscription Renewal</td>
+                    <td>$50.00</td>
+                    <td class="status-pending">Pending</td>
+                </tr>
+                <tr>
+                    <td>2024-09-08</td>
+                    <td>Refund from Store</td>
+                    <td>-$25.00</td>
+                    <td class="status-failed">Failed</td>
+                </tr>
+                <!-- Additional rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
