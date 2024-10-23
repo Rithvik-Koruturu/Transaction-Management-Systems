@@ -5,104 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savings Jar - Transaction Management System</title>
     <link rel="stylesheet" href="styles_jar.css">
-    <style>
-        /* Basic styles for the savings container */
-        .savings-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .savings-button {
-            margin: 10px;
-            padding: 10px 15px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        .savings-button:hover {
-            background-color: #45a049;
-        }
-        .amount-display {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-    </style>
-    <script>
-        let currentSavings = 0.00; // Initial savings amount
-
-        function addMoney() {
-            // Step 1: Ask for card details
-            const cardNumber = prompt("Enter your card number (4 digits):");
-            if (!/^\d{4}$/.test(cardNumber)) {
-                alert("Invalid card number. Please enter a 4-digit number.");
-                return;
-            }
-
-            const cvv = prompt("Enter CVV (3 digits):");
-            if (!/^\d{3}$/.test(cvv)) {
-                alert("Invalid CVV. Please enter a 3-digit number.");
-                return;
-            }
-
-            // Step 2: Ask for OTP manually
-            const otp = prompt("Enter the OTP sent to your registered mobile number:");
-            if (otp !== '1234') {
-                alert("Invalid OTP. Transaction failed.");
-                return;
-            }
-
-            // Step 3: Ask for the amount to add
-            const amount = parseFloat(prompt("Enter the amount to add to your Savings Jar:"));
-            if (!isNaN(amount) && amount > 0) {
-                currentSavings += amount;
-                updateSavingsDisplay();
-                alert(`$${amount.toFixed(2)} has been added to your Savings Jar.`);
-            } else {
-                alert("Please enter a valid amount.");
-            }
-        }
-
-        function autoPayToJar() {
-            const amount = parseFloat(prompt("Enter the amount for Auto-Pay to Jar:"));
-            if (!isNaN(amount) && amount > 0) {
-                currentSavings += amount;
-                updateSavingsDisplay();
-                alert(`$${amount.toFixed(2)} will be auto-paid to your Savings Jar.`);
-            } else {
-                alert("Please enter a valid amount.");
-            }
-        }
-
-        function checkJarAmount() {
-            alert(`Current Savings in Jar: $${currentSavings.toFixed(2)}`);
-        }
-
-        function checkBankAmount() {
-            // Simulated bank amount
-            const bankAmount = 500.00;
-            alert(`Your current bank amount is: $${bankAmount.toFixed(2)}`);
-        }
-
-        function updateSavingsDisplay() {
-            document.getElementById('savingsAmount').innerText = `$${currentSavings.toFixed(2)}`;
-        }
-    </script>
 </head>
 <body>
+    <!-- Savings Jar Container -->
+    <div class="savings-container">
+        <!-- Page Title -->
+        <h2>Savings Jar</h2>
         
         <!-- Section for Buttons -->
         <div class="button-section">
             <h3>Manage Your Savings</h3>
-            <button class="savings-button" onclick="autoPayToJar()">Auto-Pay to Jar</button>
-            <button class="savings-button" onclick="addMoney()">Add Money Manually</button>
-            <button class="savings-button" onclick="checkBankAmount()">Check Bank Amount</button>
-            <button class="savings-button" onclick="checkJarAmount()">Check Jar Amount</button>
+            <button class="savings-button">Auto-Pay to Jar</button>
+            <button class="savings-button">Add Money Manually</button>
+            <button class="savings-button">Check Bank Amount</button>
+            <button class="savings-button">Check Jar Amount</button>
         </div>
         
         <!-- Display Savings Amount -->
