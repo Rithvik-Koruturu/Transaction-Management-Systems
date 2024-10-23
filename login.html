@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Transaction Management System</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient background */
+        }
+
+        /* Login Form Container */
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .login-container:hover {
+            transform: scale(1.02); /* Slight scaling on hover */
+        }
+
+        /* Login Form Title */
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Input Fields */
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .login-container input:focus {
+            border-color: #4e54c8; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        /* Buttons */
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #4e54c8; /* Button color */
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #3b4198; /* Darker shade on hover */
+        }
+
+        /* Forgot Password Link */
+        .login-container a {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #4e54c8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+            color: #3b4198; /* Darker shade on hover */
+        }
+    </style>
+    <script>
+        // Function to validate login credentials
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Get the values of the username and password fields
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the username and password match the correct credentials
+            if (username === "Admin" && password === "rithvik684") {
+                // Redirect to the dashboard if the credentials are correct
+                window.location.href = "dashboard.html";
+            } else {
+                // Display an error message if the credentials are incorrect
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Login Form Container -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="validateLogin(event)">
+            <!-- Username Field -->
+            <input type="text" id="username" placeholder="Username" required>
+            <!-- Password Field -->
+            <input type="password" id="password" placeholder="Password" required>
+            <!-- Login Button -->
+            <button type="submit">Login</button>
+            <!-- Forgot Password Link -->
+            <a href="#">Forgot Password?</a>
+        </form>
+    </div>
+</body>
+</html>
