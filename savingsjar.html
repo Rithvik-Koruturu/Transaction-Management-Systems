@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Jar - Transaction Management System</title>
+    <link rel="stylesheet" href="styles_jar.css">
+    <style>
+        /* Basic styles for the savings container */
+        .savings-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .savings-button {
+            margin: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .savings-button:hover {
+            background-color: #45a049;
+        }
+        .amount-display {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        /* Global Styles (Inherited from previous pages) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for Savings Jar Page */
+        .savings-container {
+            max-width: 600px;
+            width: 90%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Page Title */
+        .savings-container h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        /* Section Title */
+        .savings-container h3 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Button Styles */
+        .savings-container .savings-button {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px 5px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .savings-container .savings-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Savings Amount Section */
+        .savings-amount {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+        }
+
+        /* Amount Display */
+        .amount-display {
+            font-size: 18px;
+            font-weight: 600;
+            color: #007bff;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Info Message or Placeholder */
+        .savings-container .info-message {
+            font-size: 14px;
+            color: #777;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        let currentSavings = 0.00; // Initial savings amount
+
+        function addMoney() {
+            const cardNumber = prompt("Enter your card number (4 digits):");
+            if (!/^\d{4}$/.test(cardNumber)) {
+                alert("Invalid card number. Please enter a 4-digit number.");
+                return;
+            }
+
+            const cvv = prompt("Enter CVV (3 digits):");
+            if (!/^\d{3}$/.test(cvv)) {
+                alert("Invalid CVV. Please enter a 3-digit number.");
+                return;
+            }
+
+            const otp = prompt("Enter the OTP sent to your registered mobile number:");
+            if (otp !== '1234') {
+                alert("Invalid OTP. Transaction failed.");
+                return;
+            }
+
+            const amount = parseFloat(prompt("Enter the amount to add to your Savings Jar:"));
+            if (!isNaN(amount) && amount > 0) {
+                currentSavings += amount;
+                updateSavingsDisplay();
+                alert(`$${amount.toFixed(2)} has been added to your Savings Jar.`);
+            } else {
+                alert("Please enter a valid amount.");
+            }
+        }
+
+        function autoPayToJar() {
+            const amount = parseFloat(prompt("Enter the amount for Auto-Pay to Jar:"));
+            if (!isNaN(amount) && amount > 0) {
+                currentSavings += amount;
+                updateSavingsDisplay();
+                alert(`$${amount.toFixed(2)} will be auto-paid to your Savings Jar.`);
+            } else {
+                alert("Please enter a valid amount.");
+            }
+        }
+
+        function checkJarAmount() {
+            alert(`Current Savings in Jar: $${currentSavings.toFixed(2)}`);
+        }
+
+        function checkBankAmount() {
+            const bankAmount = 500.00; // Simulated bank amount
+            alert(`Your current bank amount is: $${bankAmount.toFixed(2)}`);
+        }
+
+        function updateSavingsDisplay() {
+            document.getElementById('savingsAmount').innerText = `$${currentSavings.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="savings-container">
+        <h2>Savings Jar</h2>
+        
+        <!-- Section for Buttons -->
+        <div class="button-section">
+            <h3>Manage Your Savings</h3>
+            <button class="savings-button" onclick="autoPayToJar()">Auto-Pay to Jar</button>
+            <button class="savings-button" onclick="addMoney()">Add Money Manually</button>
+            <button class="savings-button" onclick="checkBankAmount()">Check Bank Amount</button>
+            <button class="savings-button" onclick="checkJarAmount()">Check Jar Amount</button>
+        </div>
+        
+        <!-- Display Savings Amount -->
+        <div class="savings-amount">
+            <p>Current Savings in Jar:</p>
+            <div id="savingsAmount" class="amount-display">$0.00</div> <!-- Updated with id -->
+        </div>
+        
+        <!-- Info Message -->
+        <div class="info-message">
+            <p>Use the buttons above to manage your savings.</p>
+        </div>
+    </div>
+</body>
+</html>

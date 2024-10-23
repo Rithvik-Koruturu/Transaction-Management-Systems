@@ -5,6 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Transaction Management System</title>
     <link rel="stylesheet" href="styles_services.css">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensures full viewport height */
+            color: #2c3e50; /* Darker text color for contrast */
+        }
+
+        /* Container for Services Page */
+        .services-container {
+            max-width: 1200px;
+            width: 90%;
+            background-color: #ffffff;
+            border-radius: 20px; /* Rounded corners for container */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Softer, larger shadow for depth */
+            padding: 40px;
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect on container */
+        .services-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+        }
+
+        /* Page Title */
+        .services-container h2 {
+            margin-bottom: 40px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Services Grid Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; /* Larger gap for a more spacious feel */
+        }
+
+        /* Individual Service Card */
+        .service-card {
+            background-color: #f8f9fa; /* Light gray background for cards */
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden; /* To ensure smooth transitions */
+            position: relative;
+        }
+
+        /* Hover effect for Service Card */
+        .service-card:hover {
+            transform: translateY(-8px); /* More pronounced lift effect */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Larger shadow on hover */
+        }
+
+        /* Service Icon */
+        .service-card img {
+            max-width: 80px; /* Slightly larger icons */
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.15); /* Larger zoom on hover */
+            filter: brightness(1.2); /* Brightens image slightly */
+        }
+
+        /* Service Name */
+        .service-card p {
+            margin: 0;
+            font-size: 20px;
+            color: #007bff; /* Use brand color */
+            font-weight: 600;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover p {
+            color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Subtle Background Pattern */
+        body:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 25%, transparent 25%),
+                              linear-gradient(225deg, rgba(0, 123, 255, 0.05) 25%, transparent 25%),
+                              linear-gradient(45deg, rgba(0, 123, 255, 0.05) 25%, transparent 25%),
+                              linear-gradient(315deg, rgba(0, 123, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 25%);
+            background-size: 40px 40px; /* Adds subtle pattern to background */
+            pointer-events: none; /* Allows clicking through */
+        }
+    </style>
 </head>
 <body>
     <!-- Services Container -->
